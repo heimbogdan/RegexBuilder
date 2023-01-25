@@ -1,0 +1,32 @@
+plugins {
+	id 'java'
+}
+
+group = 'com.helator'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+
+	//LOMBOK
+	// compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok:1.18.22'
+
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+
+
+compileJava.dependsOn(processResources)
